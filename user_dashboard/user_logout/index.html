@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Logout</title>
+  <style>
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: #f5a957;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logout-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logout-box {
+  background-color: #fff;
+  padding: 40px 50px;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+  text-align: center;
+  max-width: 350px;
+  }
+
+.logout-box h2 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.logout-box p {
+  color: #555;
+  margin-bottom: 25px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-around;
+}
+
+.btn {
+  text-decoration: none;
+  color: #fff;
+  padding: 10px 25px;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+.logout {
+  background: #e74c3c;
+}
+
+.logout:hover {
+  background: #c0392b;
+}
+
+.cancel {
+  background: #2ecc71;
+}
+
+.cancel:hover {
+  background: #27ae60;
+}
+
+  </style>
+  
+</head>
+<body>
+  <div class="logout-container">
+    <div class="logout-box">
+      <h2>User Logout</h2>
+      <p>Are you sure you want to logout?</p>
+      <div class="buttons">
+        <a href="logout.php" class="btn logout">Logout</a>
+        <a href="../index.html" class="btn cancel">Cancel</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Feedback | BookWorm Library</title>
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #fafafa;
+}
+
+/* ===== HEADER ===== */
+header {
+  width: 100%;
+  background-color: #3c1518;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 50px;
+  flex-wrap: wrap;
+  color: white;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.header-left img {
+  height: 65px;
+  border-radius: 6px;
+}
+
+.header-left h1 {
+  color: #f73e10;
+  font-size: 28px;
+  letter-spacing: 1px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  flex-wrap: wrap;
+  margin: 0;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+nav a:hover, nav a.active {
+  color: #f79c72;
+}
+
+/* ===== CONTACT SECTION ===== */
+.contact-section {
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.form-container {
+  flex: 1;
+  background-color: #fff;
+  padding: 50px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.form-container h2 {
+  color: #333;
+  font-size: 26px;
+  margin-bottom: 8px;
+}
+
+.form-container p {
+  color: #666;
+  margin-bottom: 20px;
+  font-size: 15px;
+}
+
+form {
+  width: 100%;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 6px;
+  color: #333;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 18px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: #ff4500;
+  box-shadow: 0 0 5px rgba(255, 69, 0, 0.4);
+}
+
+.name-fields {
+  display: flex;
+  gap: 10px;
+}
+
+.name-fields input {
+  flex: 1;
+}
+
+textarea {
+  resize: none;
+}
+
+.submit-btn {
+  background-color: #ff4500;
+  color: #fff;
+  font-size: 15px;
+  border: none;
+  padding: 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 0.3s;
+  width: 100%;
+}
+
+.submit-btn:hover {
+  background-color: #cc3700;
+}
+
+/* Image section */
+.image-section {
+  flex: 1;
+  background-image: url('../image/contact_us_image.jpg');
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+}
+
+  /* Error Message */
+.error {
+  color: red;
+  font-size: 0.9em;
+}
+
+/* Success message */
+#successMessage {
+  display: none;
+  background-color: #d4edda;
+  color: #155724;
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid #c3e6cb;
+  border-radius: 4px;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  header {
+    flex-direction: column;
+    text-align: center;
+    padding: 15px;
+  }
+
+  .header-left {
+    flex-direction: column;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px 0;
+  }
+
+  .contact-section {
+    flex-direction: column;
+  }
+
+  .image-section {
+    display: none;
+  }
+
+  .form-container {
+    width: 100%;
+    min-height: 100vh;
+    padding: 30px 20px;
+  }
+
+
+}
+</style>
+</head>
+<body>
+
+<!-- ===== HEADER START ===== -->
+<header>
+  <div class="header-left">
+    <img src="../image/logo.jpg" alt="Library Logo">
+    <h1>📚 BookWorm</h1>
+  </div>
+
+  <nav>
+    <ul>
+      <li><a href="../index.html">HOME</a></li>
+      <li><a href="../user_login/index.php">USER LOGIN</a></li>
+      <li><a href="../admin_login/index.php">ADMIN LOGIN</a></li>
+    </ul>
+  </nav>
+</header>
+<!-- ===== HEADER END ===== -->
+
+<!-- ===== CONTACT SECTION ===== -->
+<div class="contact-section">
+  <div class="form-container">
+    <h2>BookWorm Contact Form</h2>
+    <p>Get in touch with us!</p>
+
+    <!-- <div id="successMessage">
+      ✅ Thank you! Your message has been sent successfully. We will get back to you soon.
+    </div> -->
+
+     <form action="send.php" method="POST" id="form">
+      <label>Name:<span style="color:red;">*</span></label>
+      <div class="name-fields">
+        <input type="text" name="first" placeholder="First*" id="first_name" required>
+        <input type="text" name="last" placeholder="Last*" id="last_name" required>
+        <div id="nameError" class="error"></div>
+      </div>
+
+      <label>Email:<span style="color:red;">*</span></label>
+      <input type="email" name="email" id="email" required>
+      <div id="emailError" class="error"></div>
+
+      <label>I would like to talk with someone about:<span style="color:red;">*</span></label>
+      <select name="topic" required>
+        <option>Please select</option>
+        <option value="book-issue">Book Issue</option>
+        <option value="suggestion">Suggestions</option>
+        <option value="other">Other</option>
+      </select>
+
+      <label>Message:<span style="color:red;">*</span></label>
+      <textarea rows="4" name="message" required></textarea>
+
+      <button class="submit-btn" type="submit">SUBMIT FORM</button>
+    </form>
+  </div>
+
+  <div class="image-section"></div>
+</div>
+
+<script>
+document.getElementById("form").addEventListener("submit", function(e){
+    e.preventDefault(); 
+
+    document.getElementById("nameError").textContent='';
+    document.getElementById("emailError").textContent='';
+
+    const firstName = document.getElementById("first_name").value.trim();
+    const lastName = document.getElementById("last_name").value.trim();
+    const email = document.getElementById("email").value.trim();
+
+    let isValid = true;
+
+    // Name Validation : No number, no special character
+    const namePattern = /^[A-Za-z]{2,}$/;
+
+    if(!namePattern.test(firstName) || !namePattern.test(lastName)){
+        document.getElementById('nameError').textContent = 'Enter valid name (Only letters, min 2 letters).';
+        isValid=false;
+    }
+
+    // Email Validation
+    const emailPattern=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if(!emailPattern.test(email)){
+        document.getElementById('emailError').textContent='Enter valid email.';
+        isValid = false;
+    }
+
+    if(isValid){
+        this.submit(); // finally submit form
+    }
+
+});
+</script>
+
+</body>
+</html>

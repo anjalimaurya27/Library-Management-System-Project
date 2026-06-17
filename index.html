@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Library Management System</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ------------ FIXED HEADER ------------ */
+    header {
+      width: 100%;
+      background-color: #3c1518;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 50px;
+      flex-wrap: wrap;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo img {
+      height: 65px;
+      border-radius: 8px;
+    }
+
+    header h1 {
+      color: #f73e10;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+      transition: 0.3s;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: #f79c72;
+    }
+
+    /* ------------ HERO SECTION (with background image) ------------ */
+  .hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('image/hero.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 50px 20px;
+    padding-top: 100px; /* fixed header ka space cover karne ke liye */
+    height: 100vh;
+    color: white;
+  }
+
+
+    .box {
+      width: 100%;
+      max-width: 550px;
+      background-color: rgba(34, 34, 33, 0.7);
+      text-align: center;
+      padding: 40px 20px;
+      border-radius: 10px;
+    }
+
+    .box h1:first-child {
+      font-size: 30px;
+      margin-bottom: 12px;
+      text-decoration: underline;
+    }
+
+    .box h1:last-child {
+      font-size: 24px;
+      font-weight: 300;
+    }
+
+    /* ------------ ABOUT SECTION (background color) ------------ */
+    .about-section {
+      text-align: center;
+      padding: 50px 20px;
+      background-color: #f5a957;
+    }
+
+    .about-section h1 {
+      font-size: 35px;
+      color: #1e293b;
+      margin-bottom: 20px;
+    }
+
+    .about-section img {
+      width: 80%;
+      max-width: 700px;
+      border-radius: 20px;
+      margin: 20px 0;
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+    }
+
+    /* Info Cards */
+    .cards {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+      padding: 40px 20px;
+    }
+
+    .card {
+      background-color: #fff;
+      border-radius: 20px;
+      width: 300px;
+      text-align: center;
+      padding: 30px 20px;
+      box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+      transition: 0.3s;
+    }
+    .card h3 {
+      color: #1e293b;
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: #475569;
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+    }
+
+    .icon {
+      background-color: #f59e0b;
+      color: white;
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      margin: 0 auto 15px auto;
+    }
+
+
+    /* ------------ FOOTER ------------ */
+    footer {
+      background-color: #3c1518;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+      width: 100%;
+      box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .footer-container h2 {
+      margin-bottom: 10px;
+      color: #f73e10;
+    }
+
+    .social-icons a {
+      color: white;
+      margin: 0 8px;
+      font-size: 18px;
+    }
+
+    @media (max-width: 900px) {
+      header {
+        flex-direction: column;
+        padding: 15px 20px;
+      }
+      nav ul {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo">
+      <img src="image/logo.jpg" alt="Library Logo">
+      <h1>📚 BookWorm</h1>
+    </div>
+
+    <nav>
+      <ul>
+        <li><a class="active" href="#">HOME</a></li>
+        <li><a href="./user_login/index.php">USER LOGIN</a></li>
+        <li><a href="admin_login/index.php">ADMIN LOGIN</a></li>
+        <li><a href="contact_us/contact_us.html">FEEDBACK</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="box">
+      <h1>CREATE YOUR FUTURE WITH US!</h1>
+      <h1>"A room without books is like a body without a soul."</h1>
+    </div>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section class="about-section">
+    <h1>About Us </h1>
+    <img src="image/about_us.png" alt="Library Image">
+
+    <div class="cards">
+      <div class="card">
+        <div class="icon">🎯</div>
+        <h3>Target Audiences</h3>
+        <p>This system is designed to meet the needs of students, teachers & book lovers.</p>
+      </div>
+
+      <div class="card">
+        <div class="icon">⭐</div>
+        <h3>Preferred Many</h3>
+        <p>Our LMS is trusted by many institutions for efficiency & user-friendly design.</p>
+      </div>
+
+      <div class="card">
+        <div class="icon">👥</div>
+        <h3>Values Client</h3>
+        <p>We provide the best book management experience through digital solutions.</p>
+      </div>
+    </div>
+  </section>
+  <hr>
+  <!-- privacy policy section -->
+  <section class="about-section">
+  <h1> Privacy Policy</h1>
+  <img src="image/privacy1.jpg" alt="Library Image">
+
+  <div class="cards">
+
+    <div class="card">
+      <h3>Introduction</h3>
+      <p>
+        Our Library Management System collects and manages user information such as name,
+        email, and academic details only to provide smooth library services.
+        By accessing our platform, you agree to this Privacy Policy.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Data Security</h3>
+      <p>
+        We protect your personal information using strong encryption and secure login methods.
+        No unauthorized person can access your password or account details.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Data Sharing</h3>
+      <p>
+        We do NOT share or sell any user information to third parties.
+        All data is used strictly for internal library operations only.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>User Rights</h3>
+      <p>
+        Users have full control over their information. You may:
+        <br>• View and update your profile
+        <br>• Request correction of incorrect information
+        <br>• Contact the library admin for privacy issues anytime
+      </p>
+    </div>
+
+  </div>
+</section>
+
+       
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-container">
+      <h2>📚 Library Management System</h2>
+
+      <div class="social-icons">
+        <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/bookworm2530?igsh=MTJuYjZ0ZHB6bDF1ZQ==" title="Instagram"><i class="fab fa-instagram"></i></a>
+      </div>
+      <br>
+
+      <p>&copy; 2025 All Rights Reserved</p>
+    </div>
+  </footer>
+
+</body>
+</html>
